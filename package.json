@@ -2,9 +2,18 @@
   "name": "rollup-plugin-handlebars",
   "version": "1.0.0",
   "description": "A Rollup plugin for transforming handlebars templates to js.",
-  "main": "index.js",
+  "main": "dist/rollup-plugin-babel.cjs.js",
+  "jsnext:main": "dist/rollup-plugin-babel.es6.js",
+  "files": [
+    "src",
+    "dist",
+    "README"
+  ],
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register ./test/test.js"
+    "test": "mocha --compilers js:babel-register ./test/test.js",
+    "build": "rollup -c -f cjs -o dist/rollup-plugin-handlebars.cjs.js && rollup -c -f es6 -o dist/rollup-plugin-handlebars.es6.js",
+    "prepublish": "npm run test",
+    "pretest": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -23,9 +32,6 @@
     "url": "https://github.com/jibhaine/rollup-plugin-handlebars/issues"
   },
   "homepage": "https://github.com/jibhaine/rollup-plugin-handlebars#readme",
-  "files": [
-    "dist/"
-  ],
   "dependencies": {
     "handlebars": "^4.0.5",
     "rollup-pluginutils": "^1.3.1"

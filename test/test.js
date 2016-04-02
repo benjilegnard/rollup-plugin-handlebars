@@ -1,7 +1,7 @@
 
 import { rollup } from 'rollup';
 import assert from 'assert';
-import handlebarsPlugin from '../src';
+import handlebarsPlugin from '../src/';
 import babelPlugin from 'rollup-plugin-babel';
 
 describe('rollup-plugin-handlebars',()=>{
@@ -10,7 +10,7 @@ describe('rollup-plugin-handlebars',()=>{
 			entry: __dirname + '/fixtures/view.js',
 			plugins: [ handlebarsPlugin(), babelPlugin() ]
 		}).then( bundle => {
-      const result = bundle.generate({
+        const result = bundle.generate({
             format: 'cjs'
         });
         const View = eval(result.code);
