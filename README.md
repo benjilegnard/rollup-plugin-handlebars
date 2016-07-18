@@ -20,7 +20,14 @@ import handlebars from 'rollup-plugin-handlebars';
 rollup({
 	entry: 'main.js',
 	plugins: [
-		handlebars()
+		handlebars({
+			// Whether to import partials. Requires all partials to be statically referenced. Defaults to
+			// false.
+			importPartials: false,
+			// Whether a given template should be registered as a partial, given its identifying name.
+			// Defaults to false.
+			isPartial: (id) => false
+		})
 	]
 });
 ```
@@ -30,10 +37,11 @@ rollup({
 ```
 
 import the template.
+
 ```js
 import template from 'template.hbs';
 
-console.log(template({name:'world'}))
+console.log(template({name: 'world'}))
 ```
 
 ## Example
@@ -41,14 +49,29 @@ console.log(template({name:'world'}))
 ```js
 import { rollup } from 'rollup';
 import handlebars from 'rollup-plugin-handlebars';
-import babel from 'rollup-plugin-babel';
-import { minify } from 'uglify-js';
 
 rollup({
 	entry: 'main.js',
 	plugins: [
 		handlebars({
-			//handlebar options
+			// handlebar options
+		})
+	]
+});
+```
+
+## Example with partial imports
+
+```js
+import { rollup } from 'rollup';
+import handlebars from 'rollup-plugin-handlebars';
+
+rollup({
+	entry: 'main.js',
+	plugins: [
+		handlebars({
+			importPartials: true,
+			isPartial: (id, name) => name[0] === '_'
 		})
 	]
 });

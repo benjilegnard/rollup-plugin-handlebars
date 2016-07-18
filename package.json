@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-handlebars",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Rollup plugin for transforming handlebars templates to js.",
   "main": "dist/rollup-plugin-handlebars.cjs.js",
   "jsnext:main": "dist/rollup-plugin-handlebars.es6.js",
@@ -27,6 +27,11 @@
     "template"
   ],
   "author": "jibhaine",
+  "contributors": [{
+    "name": "Eli Skeggs",
+    "email": "skeggse@gmail.com",
+    "url": "https://eliskeggs.com"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jibhaine/rollup-plugin-handlebars/issues"
