@@ -48,7 +48,14 @@ rollup({
 	entry: 'main.js',
 	plugins: [
 		handlebars({
-			//handlebar options
+		    //you can specifically include/exclude files
+            include: 'node_modules/**',
+            exclude: [ 'node_modules/foo/**', 'node_modules/bar/**' ],
+		    //you can give the plugin a custom compiler
+		    compiler:'window.Handlebars',//default
+			hbsOptions:{
+			    //handlebars options
+			}
 		})
 	]
 });
@@ -56,4 +63,4 @@ rollup({
 
 # License
 
-MIT © [Benjamin Legrand](mailto:contact@benjaminlegrand.net)
+MIT
