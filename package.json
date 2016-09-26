@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-handlebars",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Rollup plugin for transforming handlebars templates to js.",
   "main": "dist/rollup-plugin-handlebars.cjs.js",
   "jsnext:main": "dist/rollup-plugin-handlebars.es6.js",
